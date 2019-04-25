@@ -1,7 +1,14 @@
 .list-group-item {
     padding: .5rem 1rem;
-    border: none;
 }
+.img-holder {
+    padding: 0;
+}
+
 a {
     text-decoration: none;
+}
+p {
+    font-size: 1em;
+    margin: 0;
 }

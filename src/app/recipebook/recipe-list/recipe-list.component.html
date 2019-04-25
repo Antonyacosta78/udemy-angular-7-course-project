@@ -15,13 +15,14 @@
     </div>
 </div>
 <div class="row">
-
-    <div class="col-5">
+    
+    <div class="col-md-5 col-12">
         <ul class="list-group">
             <app-recipe-item *ngFor="let item of recipes" [recipe]="item"></app-recipe-item>
         </ul>
     </div>
-    <div class="col-7">
+
+    <div class="col-md-7 col-12">
         <app-recipe-detail></app-recipe-detail>
     </div>
 

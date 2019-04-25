@@ -12,6 +12,9 @@ export class RecipeListComponent implements OnInit {
         new Recipe('Milanesa',
         'Es una milanesa, que tanto misterio',
         `https://upload.wikimedia.org/wikipedia/commons/thumb/4/47/Milanesa_napolitana_%281%29.jpg/250px-Milanesa_napolitana_%281%29.jpg`),
+        new Recipe('Milanesa',
+        'Es una milanesa, que tanto misterio',
+        `https://upload.wikimedia.org/wikipedia/commons/thumb/4/47/Milanesa_napolitana_%281%29.jpg/250px-Milanesa_napolitana_%281%29.jpg`)
     ];
 
     constructor() { }

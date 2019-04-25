@@ -8,4 +8,9 @@ export class Recipe {
         this.description = description;
         this.imagePath = imagePath;
     }
+
+    getShortDesc(charLimit: number){
+        return this.description.length > charLimit ? this.description.substr(0,charLimit) + "..." : this.description;
+    }
+
 }

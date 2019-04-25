@@ -1,3 +1,11 @@
-<a href="#" class="list-group-item">
-    {{ recipe.name }}
+<a href="#" class="list-group-item text-dark">
+    <div class="row">
+        <div class="col-3 img-holder">
+            <img [src]="recipe.imagePath" [alt]="recipe.name" class="img-fluid">
+        </div>
+        <div class="col-9">
+            <h4> <b> {{ recipe.name }} </b> </h4>
+            <p> {{ recipe.getShortDesc(25) }} </p>
+        </div>
+    </div>
 </a>
