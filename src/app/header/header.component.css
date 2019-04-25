@@ -1,0 +1,35 @@
+.navbar-nav { 
+    flex-direction: row;
+}
+
+.nav-item {
+    margin: 0 .5em;
+}
+
+.navbar-brand {
+    display: none;
+}
+
+.nav-item.active {
+    font-weight: 600;
+    font-size: 1.2rem;
+}
+
+#header-ul {
+    margin: 0 auto;
+}
+
+@media (min-width: 576px) { 
+    .navbar-brand{
+        display: block;
+        margin-bottom: 0;
+    }
+    .nav-item.active {
+        font-size: 1rem;
+        font-weight: 400;
+    }
+    #header-ul {
+        margin: 0;
+    }
+    
+}
