@@ -1,2 +1,8 @@
-<app-shopping-list-item></app-shopping-list-item>
-<app-shopping-list-tools></app-shopping-list-tools>
+<div class="row">
+    <div class="col-12">
+        <app-shopping-list-item *ngFor="let i of items" [item]="i"></app-shopping-list-item>
+    </div>
+    <div class="col-12">
+        <app-shopping-list-tools></app-shopping-list-tools>
+    </div>
+</div>

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { faTrashAlt, faEdit, faPlus } from '@fortawesome/free-solid-svg-icons';
 
 @Component({
   selector: 'app-shopping-list-tools',
@@ -7,9 +8,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ShoppingListToolsComponent implements OnInit {
 
-  constructor() { }
+    faTrashAlt = faTrashAlt;
+    faEdit = faEdit;
+    faPlus = faPlus;
 
-  ngOnInit() {
-  }
+    constructor() { }
+
+    ngOnInit() {
+    }
 
 }
