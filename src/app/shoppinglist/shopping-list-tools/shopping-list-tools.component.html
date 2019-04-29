@@ -1,18 +1,23 @@
 <div class="row">
-    <div class="col">
-        <button class="btn btn-outline-primary btn-block">
-            <fa-icon [icon]="faTrashAlt" size="2x"></fa-icon>
+    <div class="col-3" >
+        <button class="btn btn-outline-info btn-block">
+            <fa-icon [icon]="faCog" size="lg"></fa-icon>
         </button>
     </div>
 
-    <div class="col">
-        <button class="btn btn-outline-primary btn-block">
-            <fa-icon [icon]="faEdit" size="2x"></fa-icon>
-        </button>
+    <div class="col-6" *ngIf="showForm">
+        <form action="#" class="form-inline">
+            <input type="text" placeholder="Ingredient Name..." class="form-control" #name>
+            <input type="text" placeholder="Amount" class="form-control" id="amount" #amount>
+            <input type="text" placeholder="Unity" class="form-control" id="unity" #unity>
+        </form>
     </div>
-    <div class="col">
-        <button class="btn btn-outline-primary btn-block">
-            <fa-icon [icon]="faPlus" size="2x"></fa-icon>
+    <div class="col-3">
+        <button class="btn btn-outline-primary btn-block" *ngIf="!showForm" (click)="showForm = true">
+            <fa-icon [icon]="faPlus" size="lg"></fa-icon>
+        </button>
+        <button class="btn btn-outline-success btn-block" *ngIf="showForm" (click)="addIngredient()">
+            <fa-icon [icon]="faPlus" size="lg"></fa-icon>
         </button>
     </div>
 </div>

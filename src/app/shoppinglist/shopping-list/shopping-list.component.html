@@ -1,8 +1,16 @@
+<br>
 <div class="row">
     <div class="col-12">
-        <app-shopping-list-item *ngFor="let i of items" [item]="i"></app-shopping-list-item>
+        <app-shopping-list-tools (newIngredient)="addIngredient($event)"></app-shopping-list-tools>
     </div>
+</div>
+<br>
+<div class="row">
     <div class="col-12">
-        <app-shopping-list-tools></app-shopping-list-tools>
+        <ul class="list-group">
+            <li class="list-group-item" *ngFor="let i of items">
+                <app-shopping-list-item [item]="i"></app-shopping-list-item>
+            </li>
+        </ul>
     </div>
 </div>

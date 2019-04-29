@@ -1,3 +1,12 @@
 .col {
     padding: 0;
 }
+#amount, #unity{
+    width: 50%;
+}
+
+@media (min-width: 576px) {
+    #amount, #unity{
+        width: 25%;
+    }
+}

@@ -1,5 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { faTrashAlt, faEdit, faPlus } from '@fortawesome/free-solid-svg-icons';
+import { faTrashAlt, faEdit, faPlus, faCog } from '@fortawesome/free-solid-svg-icons';
 
 import { Recipe } from '../recipe.class';
 
@@ -9,10 +9,14 @@ import { Recipe } from '../recipe.class';
     styleUrls: ['./recipe-detail.component.css']
 })
 export class RecipeDetailComponent implements OnInit {
-
+    // FontAwesome Icons
+    faCog = faCog;
     faTrashAlt = faTrashAlt;
     faEdit = faEdit;
     faPlus = faPlus;
+
+    displayControls = false;
+
 
     @Input() recipe: Recipe;
 

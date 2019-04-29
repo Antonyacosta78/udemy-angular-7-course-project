@@ -1,3 +1,15 @@
 .col-12 {
     padding: 0;
 }
+
+#recipe-list{
+    overflow-y: scroll;
+    max-height: 40vh;
+}
+
+@media (min-width: 768px) { 
+    #recipe-list{
+        overflow-y: scroll;
+        max-height: 80vh;
+    }
+}

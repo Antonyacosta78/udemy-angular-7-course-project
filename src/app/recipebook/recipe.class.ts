@@ -1,16 +1,13 @@
-export class Recipe {
-    public name: string;
-    public description: string;
-    public imagePath: string;
+import { Ingredient } from '../ingredient.class';
 
-    constructor(name: string, description: string, imagePath: string) {
-        this.name = name;
-        this.description = description;
-        this.imagePath = imagePath;
-    }
+export class Recipe {
+    // public ingredients: Ingredient[];
+
+    constructor(public name: string, public description: string, public imagePath: string, public ingredients: Ingredient[]) {  }
+    // constructor(public name: string, public description: string, public imagePath: string) {  }
 
     getShortDesc(charLimit: number){
-        return this.description.length > charLimit ? this.description.substr(0,charLimit) + "..." : this.description;
+        return this.description.length > charLimit ? this.description.substr(0,charLimit) + '...' : this.description;
     }
 
 }

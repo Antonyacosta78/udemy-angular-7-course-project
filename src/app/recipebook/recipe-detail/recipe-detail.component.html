@@ -1,27 +1,25 @@
 <div id="contents">
-
-    <div class="row">
-        <div class="col-12">
-            <img src="" alt="" class="img-fluid">
-        </div>
-    </div>
+    <br>
+    <h2>
+        {{ recipe.name }}
+    </h2>
+    <img [src]="recipe.imagePath" [alt]="recipe.name" class="img-fluid">
 
     <div class="row">
         <div class="col-12">
             <div class="row">
                 <div class="col-6">
-                    <h3>Ingredients</h3>
+                    <h4>Ingredients</h4>
                 </div>
                 <div class="col-6 text-right">
-                    <button class="btn btn-outline-primary">
-                        <fa-icon size="lg" [icon]="faTrashAlt"></fa-icon>
+                    <button class="btn btn-outline-success" *ngIf="displayControls">
+                        <fa-icon size="" [icon]="faPlus"></fa-icon>
                     </button>
-                    <button class="btn btn-outline-primary">
-                        <fa-icon size="lg" [icon]="faEdit"></fa-icon>
+                    
+                    <button class="btn btn-outline-info" (click)="displayControls = !displayControls"> 
+                        <fa-icon size="" [icon]="faCog"></fa-icon>
                     </button>
-                    <button class="btn btn-outline-primary">
-                        <fa-icon size="lg" [icon]="faPlus"></fa-icon>
-                    </button>
+                
                 </div>
             </div>
         </div>
@@ -31,10 +29,26 @@
     <div class="row">
         <div class="col-12">
             <ul class="list-group">
-                <li class="list-group-item" *ngFor="let x of [1,2]; let i = index">
-                    {{ x }} {{ i }}
+                <li class="list-group-item" *ngFor="let x of recipe.ingredients; let i = index">
+                    <span *ngIf="displayControls">
+                        <button class="btn btn-sm btn-outline-primary">
+                            <fa-icon size="" [icon]="faEdit"></fa-icon>
+                        </button>
+                        <button class="btn btn-sm btn-outline-danger">
+                            <fa-icon size="" [icon]="faTrashAlt"></fa-icon>
+                        </button>
+                    </span>
+                    {{ x.getText() }}
                 </li>
             </ul>
+        </div>
+    </div>
+    <br>
+    <div class="row">
+        <div class="col-12">
+            <p>
+                {{ recipe.description }}
+            </p>
         </div>
     </div>
 

@@ -1,24 +1,26 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Output, EventEmitter, OnInit } from '@angular/core';
 
 @Component({
     selector: 'app-header',
     templateUrl: './header.component.html',
     styleUrls: ['./header.component.css']
 })
-export class HeaderComponent implements OnInit {
+export class HeaderComponent implements OnInit{
 
-    currentSection = 'Recipe Book';
+    @Output() linkClicked = new EventEmitter();
     sections = ['Recipe Book', 'Shopping List']
+    currentSection = this.sections[1];
 
     constructor() { }
 
     section(index) {
         // smart code to change the section in a pretty way
-        console.log(this.sections[index] === this.currentSection)
         this.currentSection = this.sections[index];
+        this.linkClicked.emit(this.currentSection);
     }
 
     ngOnInit() {
+        this.linkClicked.emit(this.currentSection);
     }
 
 }
