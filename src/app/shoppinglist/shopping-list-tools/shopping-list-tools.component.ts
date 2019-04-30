@@ -26,17 +26,30 @@ export class ShoppingListToolsComponent implements OnInit {
     ngOnInit() {
     }
 
+    isNameEmpty() {
+        return (this.iname.nativeElement.value === '');
+    }
+
+    getValues() {
+        return {
+            name: this.iname.nativeElement.value,
+            amount: (this.iamount.nativeElement.value === '') ? '1' : this.iamount.nativeElement.value,
+            unity: (this.iunity.nativeElement.value === '') ? 'un' : this.iunity.nativeElement.value
+        };
+    }
+
     addIngredient() {
-        this.newIngredient.emit(
-            new Ingredient(
-                this.iname.nativeElement.value,
-                this.iamount.nativeElement.value,
-                this.iunity.nativeElement.value
-            )
-        );
+        if (!this.isNameEmpty()) {
+            const { name, amount, unity } = this.getValues();
+            this.newIngredient.emit(
+                new Ingredient(name, amount, unity)
+            );
+        }
+
         this.iname.nativeElement.value = '';
         this.iamount.nativeElement.value = '';
         this.iunity.nativeElement.value = '';
+        this.showForm = false;
     }
 
 }

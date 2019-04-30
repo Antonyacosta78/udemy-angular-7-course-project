@@ -21,19 +21,27 @@
             <a href="#" class="nav-link" (click)="section(i)"> {{ e }} </a>
         </li>
     </ul>
-    <ul class="navbar-nav justify-content-end">
-        <li class="dropdown">
-            <a href="#" class="dropdown-toggle nav-link" role="button"> &nbsp;Manage <span class="caret"></span></a>
-            <ul class="dropdown-menu">
-                <li>
-                    <a href="#">Save Data</a>
-                </li>
-                <li>
-                    <a href="#">Fetch Data</a>
-                </li>
-            </ul>
+
+    <!--
+        Directive approach, i didn`t like it, will try component approach
+        <ul class="navbar-nav justify-content-end">
+        <li class="dropdown" appDropdown #dropdownContainer>
+            <a href="#" class="dropdown-toggle nav-link" role="button" (click)="dropdownContainer.toggleDropdown()"> &nbsp;Manage <span class="caret"></span></a>
+            <div class="dropdown-menu dropdown-menu-right" style="position: absolute" #dropdownMenu>
+                <a class="dropdown-item" href="#">Save Data</a>
+                <a class="dropdown-item" href="#">Fetch Data</a>
+            </div>
         </li>
+    </ul> -->
+
+    <ul class="navbar-nav justify-content-end">
+        <app-dropdown togglerClass="nav-link" dropdownClass="dropdown-menu-right" togglerText="Manage">
+            <a class="dropdown-item" href="#">Save Data</a>
+            <a class="dropdown-item" href="#">Fetch Data</a>
+        </app-dropdown>
+        
     </ul>
+    
 </nav>
 <div class="row" id="title">
     <div class="col-12 text-center">

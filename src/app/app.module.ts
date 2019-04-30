@@ -11,6 +11,7 @@ import { ShoppingListToolsComponent } from './shoppinglist/shopping-list-tools/s
 import { ShoppingListItemComponent } from './shoppinglist/shopping-list-item/shopping-list-item.component';
 import { ShoppingListComponent } from './shoppinglist/shopping-list/shopping-list.component';
 import { HeaderComponent } from './header/header.component';
+import { DropdownComponent } from './header/dropdown/dropdown.component';
 
 @NgModule({
   declarations: [
@@ -21,7 +22,8 @@ import { HeaderComponent } from './header/header.component';
     ShoppingListToolsComponent,
     ShoppingListItemComponent,
     ShoppingListComponent,
-    HeaderComponent
+    HeaderComponent,
+    DropdownComponent,
   ],
   imports: [
     BrowserModule,

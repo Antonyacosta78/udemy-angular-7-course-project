@@ -5,7 +5,7 @@
     width: 50%;
 }
 
-@media (min-width: 576px) {
+@media (min-width: 768px) {
     #amount, #unity{
         width: 25%;
     }
