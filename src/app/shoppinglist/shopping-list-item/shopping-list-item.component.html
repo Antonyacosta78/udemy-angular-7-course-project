@@ -1,12 +1,26 @@
-<div class="row">
-    <div class="col-6">
-        <p class="text-left">
+<div class="row form-inline">
+    <div class="col-8">
+        <span *ngIf="shoppinglistService.showControls">
+            <button class="btn btn-danger" *ngIf="!edit" (click)="delete()">
+                <fa-icon [icon]="faTrashAlt" ></fa-icon>
+            </button>
+            <button class="btn btn-primary" *ngIf="!edit" (click)="edit = true">
+                <fa-icon [icon]="faEdit"></fa-icon>
+            </button>
+            <button class="btn btn-success" *ngIf="edit" (click)="edit = false">
+                &#x2714;
+            </button>
+        </span>
+        <span *ngIf="!edit">
             {{ item.name  }}
-        </p>
+        </span>
+        <input type="text" [(ngModel)]="item.name" class="form-control" style="width: 50%" *ngIf="edit">
     </div>
-    <div class="col-6">
-        <p class="text-right">
+    <div class="col-4">
+        <p class="text-right" *ngIf="!edit">
             {{ item.quantity }} {{ item.unity }}
         </p>
+        <input type="text" [(ngModel)]="item.quantity" class="form-control" style="width: 50%" *ngIf="edit">
+        <input type="text" [(ngModel)]="item.unity" class="form-control"  style="width: 50%" *ngIf="edit">
     </div>
 </div>

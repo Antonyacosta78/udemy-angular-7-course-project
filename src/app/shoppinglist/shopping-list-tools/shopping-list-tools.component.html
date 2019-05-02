@@ -1,6 +1,6 @@
 <div class="row">
     <div class="col-3" >
-        <button class="btn btn-outline-info btn-block">
+        <button class="btn btn-outline-info btn-block" (click)="toggleControls()">
             <fa-icon [icon]="faCog" size="lg"></fa-icon>
         </button>
     </div>
@@ -8,7 +8,7 @@
     <div class="col-6" *ngIf="showForm">
         <form action="#" class="form-inline">
             <input type="text" placeholder="Ingredient Name..." class="form-control" #name>
-            <input type="text" placeholder="Amount" class="form-control" id="amount" #amount>
+            <input type="number" placeholder="Amount" class="form-control" id="amount" #amount>
             <input type="text" placeholder="Unity" class="form-control" id="unity" #unity>
         </form>
     </div>

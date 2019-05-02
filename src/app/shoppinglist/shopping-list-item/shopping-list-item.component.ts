@@ -1,5 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
+import { faTrashAlt, faEdit } from '@fortawesome/free-solid-svg-icons';
 import { Ingredient } from '../../ingredient.class';
+import { ShoppinglistService } from 'src/app/services/shoppinglist.service';
 
 @Component({
     selector: 'app-shopping-list-item',
@@ -7,12 +9,21 @@ import { Ingredient } from '../../ingredient.class';
     styleUrls: ['./shopping-list-item.component.css']
 })
 export class ShoppingListItemComponent implements OnInit {
+    faTrashAlt = faTrashAlt;
+    faEdit = faEdit;
 
-    @Input() item: Ingredient;
+    @Input() index: number;
+    item: Ingredient;
+    edit: boolean;
 
-    constructor() { }
+    constructor(private shoppinglistService: ShoppinglistService) { }
 
     ngOnInit() {
+        this.item = this.shoppinglistService.items[this.index]
+        this.edit = false;
     }
 
+    delete() {
+        this.shoppinglistService.delete(this.index)
+    }
 }
