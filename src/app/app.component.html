@@ -1,11 +1,7 @@
 <div id="main">
-    <app-header (linkClicked)="changeSection($event)" ></app-header>
+    <app-header></app-header>
     <div class="container">
-
-        <app-recipe-list *ngIf="currentSection === 'Recipe Book'; else shoppingList "></app-recipe-list>
-        <ng-template #shoppingList>
-            <app-shopping-list></app-shopping-list>
-        </ng-template>
+        <router-outlet></router-outlet>
     </div>
 
 </div>

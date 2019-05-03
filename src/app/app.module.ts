@@ -2,6 +2,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { Routes, RouterModule } from '@angular/router';
 
 import { AppComponent } from './app.component';
 import { RecipeListComponent } from './recipebook/recipe-list/recipe-list.component';
@@ -12,6 +13,12 @@ import { ShoppingListItemComponent } from './shoppinglist/shopping-list-item/sho
 import { ShoppingListComponent } from './shoppinglist/shopping-list/shopping-list.component';
 import { HeaderComponent } from './header/header.component';
 import { DropdownComponent } from './header/dropdown/dropdown.component';
+
+const routes: Routes  = [
+    { path: '', component: RecipeListComponent },
+    { path: 'shoppinglist', component: ShoppingListComponent },
+    { path: 'recipebook', component: RecipeListComponent }
+];
 
 @NgModule({
   declarations: [
@@ -28,7 +35,8 @@ import { DropdownComponent } from './header/dropdown/dropdown.component';
   imports: [
     BrowserModule,
     FormsModule,
-    FontAwesomeModule
+    FontAwesomeModule,
+    RouterModule.forRoot(routes)
   ],
   providers: [],
   bootstrap: [AppComponent]

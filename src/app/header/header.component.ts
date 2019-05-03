@@ -1,26 +1,35 @@
-import { Component, Output, EventEmitter, OnInit } from '@angular/core';
+import { Component, DoCheck } from '@angular/core';
+import { Router, ActivatedRoute } from '@angular/router';
 
 @Component({
-    selector: 'app-header',
-    templateUrl: './header.component.html',
-    styleUrls: ['./header.component.css']
+  selector: 'app-header',
+  templateUrl: './header.component.html',
+  styleUrls: ['./header.component.css']
 })
-export class HeaderComponent implements OnInit{
+export class HeaderComponent implements DoCheck {
+  sections = [{ name: 'Recipe Book', path: '/recipebook' }, { name: 'Shopping List', path: '/shoppinglist' }];
+  currentSection: string;
 
-    @Output() linkClicked = new EventEmitter();
-    sections = ['Recipe Book', 'Shopping List']
-    currentSection = this.sections[1];
+  constructor(private router: Router) {}
 
-    constructor() { }
+  section(index) {
+    // smart code to change the section in a pretty way
+    // this is made by Router now
+    this.currentSection = this.sections[index].name;
+  }
 
-    section(index) {
-        // smart code to change the section in a pretty way
-        this.currentSection = this.sections[index];
-        this.linkClicked.emit(this.currentSection);
+  ngDoCheck() {
+    // made this but its HORRIBLE
+    // this.currentSection = (this.router.url === '/')
+    // ? this.sections[0].name
+    // : this.sections.filter(e => e.name === this.router.url)[0].name ;
+    // not shorter, but more readable
+
+    if (this.router.url === '/') {
+      this.currentSection = this.sections[0].name;
+    } else {
+      const [currentSection] = this.sections.filter(e => e.path === this.router.url);
+      this.currentSection = currentSection.name;
     }
-
-    ngOnInit() {
-        this.linkClicked.emit(this.currentSection);
-    }
-
+  }
 }

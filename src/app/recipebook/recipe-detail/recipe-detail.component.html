@@ -37,6 +37,9 @@
                         <button class="btn btn-sm btn-outline-danger">
                             <fa-icon size="" [icon]="faTrashAlt"></fa-icon>
                         </button>
+                        <button class="btn btn-sm btn-outline-success" (click)="toShoppingList(i)">
+                            <fa-icon size="" [icon]="faShare"></fa-icon>
+                        </button>
                     </span>
                     {{ x.getText() }}
                 </li>
